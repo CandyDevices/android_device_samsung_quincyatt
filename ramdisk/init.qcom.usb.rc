@@ -28,18 +28,13 @@
 on init
     write /sys/class/android_usb/android0/f_rndis/wceis 1
 
-service qcom-usb-sh /system/bin/sh /init.qcom.usb.sh
-    class core
-    user root
-    oneshot
-
 on boot
     write /sys/class/android_usb/android0/iManufacturer $ro.manufacturer
     write /sys/class/android_usb/android0/iProduct $ro.model
     write /sys/class/android_usb/android0/iSerial $ro.serialno
     write /sys/class/android_usb/f_mass_storage/inquiry_string "Samsung"
     write /sys/class/android_usb/f_mass_storage/vendor_string "SAMSUNG"
-    write /sys/class/android_usb/f_mass_storage/product_string "SGH-I717"
+    write /sys/class/android_usb/f_mass_storage/product_string "SGH-T769"
 
 # rndis,acm,diag and rmnet,acm,diag are used for IOT Hidden Menu
 on property:sys.usb.config=rndis,acm,diag
